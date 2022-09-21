@@ -7,6 +7,7 @@
 ## General Info
 This browser based web application to ...
 	
+* Hi, I am Jackson! I am excited for this project!   
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
