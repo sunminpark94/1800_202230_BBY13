@@ -6,12 +6,10 @@
 
 ## General Info
 This browser based web application to ...
-<<<<<<< HEAD
 	
 * Hi, I am Jackson! I am excited for this project!   
-=======
 * This line is for Abhishek. Finally solved this.
->>>>>>> 6adce56f59ca6475ced2f03d9d681697d806d08f
+* This is Mina. Yay!
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
