@@ -1,0 +1,15 @@
+.bgimg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.hero {
+    position:fixed;
+    top: 50%;
+    left: 55%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
