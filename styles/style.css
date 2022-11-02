@@ -1,15 +1,69 @@
-.bgimg {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size:cover;
-    width: 100vw;
-    height: 100vh;
+body {
+    padding: 10px;
+}
+#searchbar {
+    grid-area: searchbar;
+    margin-bottom: 40px;
+    border-radius: 40px;
+}
+#list {
+    display: grid;
+    grid-area: list;
+    grid-template-columns: 1fr,1fr;
+    grid-template-areas: 'card1 card2'
+    'card3 .';
+    gap: 10px;
+}
+#gridcontainer {
+    display: grid;
+    grid-template-areas: 
+    'searchbar'
+    'list';
+    margin-top: 20px;
+}
+.card-title {
+    border: none;
+    font-weight: 600;
+}
+input {
+    border: none;
+}
+#card1 {
+    border-radius: 20px;
+}
+#card2 {
+    border-radius: 20px;
+}
+#card3 {
+    border-radius: 20px;
+}
+#card4 {
+    border-radius: 20px;
+}
+#card5 {
+    border-radius: 20px;
+}
+#card6 {
+    border-radius: 20px;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+    align-items: flex-end;
+
+}
+#icon {
+    height: 20px;
+    width: auto;
+    margin-bottom: 8px;
 }
 
-.hero {
-    position:fixed;
-    top: 50%;
-    left: 55%;
-    margin-top: -100px;
-    margin-left: -200px;
+footer {
+    margin-top: 50px;
+    margin-right: 20px;
+    float: right;
 }
