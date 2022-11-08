@@ -27,24 +27,35 @@ body {
 }
 input {
     border: none;
+    background-color: transparent;
+
+}
+input:focus {
+    outline:none;
 }
 #card1 {
     border-radius: 20px;
+    background-color:gainsboro;
 }
 #card2 {
     border-radius: 20px;
+    background-color:gainsboro;
 }
 #card3 {
     border-radius: 20px;
+    background-color:gainsboro;
 }
 #card4 {
     border-radius: 20px;
+    background-color:gainsboro;
 }
 #card5 {
     border-radius: 20px;
+    background-color:gainsboro;
 }
 #card6 {
     border-radius: 20px;
+    background-color:gainsboro;
 }
 .btn-circle.btn-xl {
     width: 70px;
