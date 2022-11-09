@@ -8,7 +8,11 @@ function insertName() {
         user_Name = user.displayName;
   
         //method #1:  insert with html only
+<<<<<<< HEAD
         //document.getElementById("name-goes-here").innerText = fullName;    //using javascript
+=======
+        document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
+>>>>>>> f9868cf419503d15120c146231c661a6abf54439
         //method #2:  insert using jquery
         $("#name-goes-here").text(user_Name); //using jquery
       } else {
