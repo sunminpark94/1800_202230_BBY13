@@ -83,3 +83,7 @@ input:focus {
     margin-right: 20px;
     float: right;
 }
+.taskitem {
+    display:flex;
+    gap: 10px;
+}

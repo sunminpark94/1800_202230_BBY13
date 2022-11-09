@@ -44,3 +44,26 @@ function insertName() {
 })
 }
 insertTitle();
+
+function insertTask() {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if a user is signed in:
+    if (user) {
+
+      // Do something for the currently logged-in user here:
+      console.log(user.uid);
+      console.log(user.displayName);
+      user_Name = user.displayName;
+
+  db.collection("users").doc(user.uid).collection("lists").doc("list1").collection("tasks")
+  .get()
+  .then(function (snap) {
+    snap.forEach(function(doc) {
+      console.log(doc.data().details)
+      document.getElementById("listTask1").innerText = doc.data().details;
+    })
+  })
+  }
+})
+}
+insertTask();
