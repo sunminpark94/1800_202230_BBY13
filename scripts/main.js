@@ -19,6 +19,7 @@ function insertName() {
   }
   insertName(); //run the function
 
+<<<<<<< HEAD
   // function insertTitle() {
   //   firebase.auth().onAuthStateChanged((user) => {
   //     // Check if a user is signed in:
@@ -55,3 +56,25 @@ function insertTitle() {
     })
   })
 } 
+=======
+  function insertTitle() {
+    firebase.auth().onAuthStateChanged((user) => {
+      // Check if a user is signed in:
+      if (user) {
+        // Do something for the currently logged-in user here:
+        console.log(user.uid);
+        console.log(user.displayName);
+        user_Name = user.displayName;
+
+    db.collection("users").doc("user.uid").collection("lists")
+    .get()
+    .then(function (snap) {
+      snap.forEach(function(doc) {
+        console.log(doc.data().title)
+      })
+    })
+    }
+})
+}
+  insertTitle();
+>>>>>>> 1a7ecb4210290e3f90dbe5deb1d0225873521573
