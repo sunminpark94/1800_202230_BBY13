@@ -18,3 +18,15 @@ function insertName() {
     });
   }
   insertName(); //run the function
+
+  function insertTitle() {
+    db.collection("users").doc("ZS0kL8Aa8VVDjvhACyiE3Q5L8UE2").collection("lists")
+    .get()
+    .then(function (snap) {
+      snap.forEach(function(doc) {
+        console.log(doc.data().title)
+      })
+    })
+  }
+
+  insertTitle();
