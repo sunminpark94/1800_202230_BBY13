@@ -10,7 +10,7 @@ function insertName() {
   
         //method #1:  insert with html only
         //document.getElementById("name-goes-here").innerText = fullName;    //using javascript
-        document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
+        // document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
         //method #2:  insert using jquery
         $("#name-goes-here").text(user_Name); //using jquery
       } else {
@@ -37,6 +37,7 @@ function insertName() {
     .then(function (snap) {
       snap.forEach(function(doc) {
         console.log(doc.data().title)
+        document.getElementById("listTitle1").innerText = doc.data().title;
       })
     })
     }
