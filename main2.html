@@ -53,7 +53,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="./images/to-doicon.jpg" height="36" />
-          TADA welcomes you, <span id="name-goes-here"></span></a
+          TADA welcomes you, <span id="firstName"></span></a
         >
         <button
           class="navbar-toggler"
@@ -111,8 +111,11 @@
           aria-label="Search"
         />
       </form>
+
+
       <div id="list">
-        <div id="card1" class="border">
+        
+        <template id="cardTemplate" class="border">
           <div class="card-body">
             <input
               class="card-title"
@@ -129,158 +132,12 @@
                 placeholder="Enter task"
               />
             </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-          </div>
-        </div>
 
-        <div id="card2" class="border">
-          <div class="card-body">
-            <input
-              class="card-title"
-              type="text"
-              pattern="A-Za-z"
-              placeholder="List Title"
-            />
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
           </div>
-        </div>
+        </template>
 
-        <div id="card3" class="border">
-          <div class="card-body">
-            <input
-              class="card-title"
-              type="text"
-              pattern="A-Za-z"
-              placeholder="List Title"
-            />
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-          </div>
-        </div>
 
-        <div id="card4" class="border">
-          <div class="card-body">
-            <input
-              class="card-title"
-              type="text"
-              pattern="A-Za-z"
-              placeholder="List Title"
-            />
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-            <div>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <input
-                class="list-item"
-                type="text"
-                pattern="A-Za-z"
-                placeholder="Enter task"
-              />
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -302,6 +159,5 @@
     <script src=" ./scripts/firbaseAPI_TEAM13.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/main.js"></script>
   </body>
 </html>

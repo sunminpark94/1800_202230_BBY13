@@ -10,7 +10,7 @@ body {
     display: grid;
     grid-area: list;
     grid-template-columns: 1fr,1fr;
-    grid-template-areas: 'card1 card2'
+    grid-template-areas: 'card card2'
     'card3 .';
     gap: 10px;
 }
@@ -34,27 +34,28 @@ input:focus {
     outline:none;
 }
 #card1 {
-    border-radius: 20px;
+    border-radius: 15px;
     background-color:gainsboro;
+
 }
 #card2 {
-    border-radius: 20px;
+    border-radius: 15px;
     background-color:gainsboro;
 }
 #card3 {
-    border-radius: 20px;
+    border-radius: 15px;
     background-color:gainsboro;
 }
 #card4 {
-    border-radius: 20px;
+    border-radius: 15px;
     background-color:gainsboro;
 }
 #card5 {
-    border-radius: 20px;
+    border-radius: 15px;
     background-color:gainsboro;
 }
 #card6 {
-    border-radius: 20px;
+    border-radius: 15px;
     background-color:gainsboro;
 }
 .btn-circle.btn-xl {
