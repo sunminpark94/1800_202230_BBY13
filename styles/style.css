@@ -83,6 +83,10 @@ input:focus {
     margin-right: 20px;
     float: right;
 }
+#new-nav {
+    display: flex;
+    justify-content: space-between;
+}
 .taskitem {
     display:flex;
     gap: 10px;
