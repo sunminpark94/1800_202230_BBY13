@@ -32,7 +32,6 @@ body {
 input {
     border: none;
     background-color: transparent;
-
 }
 input:focus {
     outline:none;
@@ -85,7 +84,6 @@ input:focus {
 }
 #new-nav {
     display: flex;
-    justify-content: space-between;
 }
 .taskitem {
     display:flex;

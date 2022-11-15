@@ -1,0 +1,123 @@
+body {
+    padding: 25px;
+    background: url('https://w0.peakpx.com/wallpaper/109/311/HD-wallpaper-woman-wearing-black-top-standing-near-yellow-wall.jpg');
+    background-repeat: no-repeat;
+    background-size:100vw 100vh;
+}
+
+#searchbar {
+    grid-area: searchbar;
+    margin-bottom: 40px;
+    border-radius: 40px;
+}
+input {
+    border: none;
+    background-color: transparent;
+}
+input:focus {
+    outline:none;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+    align-items: flex-end;
+
+}
+#icon {
+    height: 20px;
+    width: auto;
+    margin-bottom: 8px;
+}
+#message {
+    font-size: x-large;
+    font-weight: 600;
+}
+#btn {
+    margin-top: 50px;
+    margin-right: 20px;
+    float: right;
+}
+#container {
+    border-radius: 30px;
+    background-color: azure;
+    margin-top: 50px;
+    height: 500px;
+}
+#container {
+    display: grid;
+    grid-template-areas: 'new-nav'
+    'newListTitle'
+    'listItems';
+    gap: 0px;
+
+}
+#new-nav {
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    grid-area: new-nav;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#list-title {
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    font-size: xx-large;
+    font-weight: 600;
+    color: black;
+}
+#list-title::placeholder {
+    font-size:xx-large;
+    font-weight: 600;
+    text-align: center;
+}
+#list-title:focus::placeholder {
+    color: transparent;
+}
+.taskCheckbox {
+    height: 30px;
+    width: 25px;
+}
+#navButton1 {
+    height: 35px;
+    width: 100%;
+    cursor: pointer;
+}
+#navButton2 {
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+#newListTitle {
+    height: fit-content;
+    display: flex;
+    grid-area: newListTitle;
+    margin-top: -130px;
+    border-bottom-style: groove;
+    border-color:blanchedalmond;
+}
+#listItems {
+    height: fit-content;
+    grid-area: listItems;
+    margin-top: -220px;
+}
+.tasks {
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+}
+.list-item {
+    width: 100%;
+    font-size: larger;
+    color: black;
+    font-weight: 500;
+}
+.list-item:focus::placeholder {
+    color: transparent;
+}

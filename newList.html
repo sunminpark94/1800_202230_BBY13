@@ -44,7 +44,7 @@
     <!-- Other libraries go here -->
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/newList.css">
 
   </head>
 
@@ -106,23 +106,30 @@
         </div>
       </nav>
 
-      <form>
-        <div class="container">
-          <div id="new-nav">
-            <button type="submit" class="btn btn-primary">Cancel</button>
-            <label for="new-list">NEW LIST</label>
-            <button type="submit" class="btn btn-primary" id="saveNewList" onclick="saveNewList()">Save</button>
+      <div id="container">
+        <div id="new-nav">
+          <div><img src="/images/cross.svg" alt="Close" id="navButton1" onclick="return confirm('Are you sure you want to discard changes?')"></div>
+          <div><span id="message">NEW LIST</span></div>
+          <div><img src="/images/check-tick-svgrepo-com.svg" alt="Close" id="navButton2"></div>
+        </div>
+        <div id="newListTitle">
+          <input id="list-title" type="text" placeholder="Insert List Title Here"/>
+        </div>
+        <div id="listItems">
+          <div class="tasks">
+            <input type="checkbox" value="option1" class="taskCheckbox">
+            <input type="text" class="list-item" placeholder="Add to-do item">
           </div>
-          <input type="text" class="form-control" id="list-title" aria-describedby="list-title" placeholder="Enter new list title">
-          <div class="list-items">
-            <div class="form-check">
-              <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-            </div>
-            <input type="text" class="form-control" id="list-item" placeholder="Add to-do item">
+          <div class="tasks">
+            <input type="checkbox" value="option1" class="taskCheckbox">
+            <input type="text" class="list-item" placeholder="Add to-do item">
+          </div>
+          <div class="tasks">
+            <input type="checkbox" value="option1" class="taskCheckbox">
+            <input type="text" class="list-item" placeholder="Add to-do item">
           </div>
         </div>
-
-      </form>
+      </div>
 
       <!------------------------------>
       <!---------------------------------------------->
@@ -130,7 +137,7 @@
       <!---------------------------------------------->
 
       <!-- Link to scripts of your own -->
-      <script src=" ./scripts/firebaseAPI_TEAM13.js"></script>
+      <script src="./scripts/firebaseAPI_TEAM13.js"></script>
       <script src="./scripts/script.js"></script>
       <script src="./scripts/skeleton.js"></script>
       <script src="./scripts/main.js"></script>
