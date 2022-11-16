@@ -37,7 +37,7 @@ function insertName() {
     .get()
     .then(function (snap) {
       snap.forEach(function(doc) {
-        let currentListID = doc.id;
+        // let currentListID = doc.id;
         console.log(doc.data().title)
         // document.getElementsByClassName("listTitle1").innerText = doc.data().title;
         var listTitle = doc.data().title;
@@ -45,7 +45,7 @@ function insertName() {
         let testCard = card.content.cloneNode(true);
         testCard.querySelector('.card-title').innerHTML = listTitle;
         // loop for adding in tasks items  
-        db.collection("users").doc(user.uid).collection("lists").doc(currentListID).collection("tasks")
+        db.collection("users").doc(user.uid).collection("lists").doc(doc.id).collection("tasks")
         .get()
         .then(function (snap2) {
           let taskItem = document.getElementById("taskItem");
