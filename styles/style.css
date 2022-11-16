@@ -75,6 +75,8 @@ input:focus {
     font-size: 24px;
     line-height: 1.33;
     align-items: flex-end;
+    border-color: white;
+    border-width: 3px;
 
 }
 #icon {
