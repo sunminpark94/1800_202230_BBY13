@@ -4,11 +4,6 @@ body {
     background-repeat: no-repeat;
     background-size:100vw 100vh;
 }
- 
-.card-body {
-    border-radius: 15px;
-    background-color:rgb(213, 19, 19);
-} 
 
 #logMessage {
     text-align: center;
@@ -39,10 +34,7 @@ body {
     'list';
     margin-top: 20px;
 }
-.card-title {
-    border: none;
-    font-weight: 600;
-}
+
 input {
     border: none;
     background-color: transparent;
@@ -52,11 +44,20 @@ input:focus {
 }
 
 /* for the template */
+.cards {
+    border-radius: 15px;
+    background-color:azure;
+} 
+.card-title {
+    border: none;
+    font-weight: 600;
+    text-align: center;
+}
 
-#taskItem {
+.singleTaskFormat {
+    margin-left: 10px;
     display:flex;
     gap: 10px;
-    font-size: 10px;
 }
 
 .taskDetails{
