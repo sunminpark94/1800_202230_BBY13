@@ -20,6 +20,28 @@ function insertName() {
   }
   insertName(); //run the function
 
+  function insertCards() {
+    firebase.auth().onAuthStateChanged((user) => {
+      // Check if a user is signed in:
+      if (user) {
+
+        // Do something for the currently logged-in user here:
+        console.log(user.uid);
+        console.log(user.displayName);
+        user_Name = user.displayName;
+
+    db.collection("users").doc(user.uid).collection("lists")
+    .get()
+    .then(function (snap) {
+      snap.forEach(function(doc) {
+        console.log(doc.data().title)
+        document.getElementById("listTitle1").innerText = doc.data().title;
+      })
+    })
+    }
+})
+}
+
 
   function insertTitle() {
     firebase.auth().onAuthStateChanged((user) => {
