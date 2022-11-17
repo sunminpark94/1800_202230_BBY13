@@ -1,8 +1,6 @@
 body {
     padding: 25px;
-    background: url('https://w0.peakpx.com/wallpaper/109/311/HD-wallpaper-woman-wearing-black-top-standing-near-yellow-wall.jpg');
-    background-repeat: no-repeat;
-    background-size:100vw 100vh;
+    background-color:darkorange;
 }
 
 #logMessage {
@@ -14,9 +12,22 @@ body {
 #searchbar {
     grid-area: searchbar;
     margin-bottom: 40px;
-    border-radius: 40px;
-    background-color: aquamarine;
+    border-radius: 10px;
+    background-color:aliceblue;
     width: 100%;
+    height: 40px;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+    border: 2px;
+    border-color: black;
+    background-image: url('../images/search_FILL1_wght300_GRAD0_opsz48.svg');
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position-x: 5px;
+}
+#searchbar::placeholder {
+    color:gray;
 }
 #lists-go-here {
     display: grid;
@@ -48,6 +59,10 @@ input:focus {
     border-radius: 15px;
     background-color:azure;
     height: 150px;
+}
+.card-body:hover {
+    background-color:bisque;
+    transform: scaleY(-10px);
 } 
 .card-title {
     border: none;

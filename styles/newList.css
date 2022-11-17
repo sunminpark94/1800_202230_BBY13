@@ -1,10 +1,7 @@
 body {
     padding: 25px;
     background: url('https://w0.peakpx.com/wallpaper/109/311/HD-wallpaper-woman-wearing-black-top-standing-near-yellow-wall.jpg');
-    background-repeat: no-repeat;
-    background-size:100vw 100vh;
 }
-
 #searchbar {
     grid-area: searchbar;
     margin-bottom: 40px;
@@ -71,7 +68,6 @@ input:focus {
     width: 100%;
     font-size: xx-large;
     font-weight: 600;
-    color: black;
 }
 #list-title::placeholder {
     font-size:xx-large;
