@@ -102,21 +102,20 @@
       </div>
     </nav>
 
-    <template id="cards">
-      <div id="card-body" class="cards">
+    <template id="listCardTemplate">
+      <div class="card-body"> 
         <h3 class="card-title"></h3>
-        <!-- <div id ="taskItem">
+        <div id ="0" class="tasks-go-here">
 
-        </div> -->
+        </div>
       </div>
     </template>
 
-    <template id="taskItem">
-      <div class="singleTaskFormat">
-        <input class="form-check-input" type="checkbox" value="" class="flexCheckDefault">
+    <template id="taskItemTemplate">
+      <div class="taskItem">
+        <input type="checkbox" value="" class="taskCheckbox">
         <p class="taskDetails"></p>
       </div>
-
     </template>
 
     <div id="gridcontainer">
@@ -125,7 +124,7 @@
         placeholder="Search Lists"
         aria-label="Search" id="searchbar"
       />
-      <div id="list">
+      <div id="lists-go-here">
 
       </div>
     </div>

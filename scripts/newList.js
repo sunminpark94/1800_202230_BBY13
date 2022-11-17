@@ -39,7 +39,8 @@ insertName(); //run the function
                 db.collection("users").doc(user.uid).collection("lists").add({
                   title: listTitle,
                   timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                }).then(()=> {
+                })
+                .then(()=> {
                   window.location.href = "main.html";
                 })
               })
