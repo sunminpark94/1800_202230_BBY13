@@ -23,7 +23,6 @@ input:focus {
     line-height: 1.33;
     align-items: flex-end;
     border-color:white;
-
 }
 #icon {
     height: 20px;
@@ -49,8 +48,7 @@ input:focus {
     display: grid;
     grid-template-areas: 'new-nav'
     'newListTitle'
-    'listItems';
-    gap: 0px;
+    'taskItems';
 
 }
 #new-nav {
@@ -58,11 +56,12 @@ input:focus {
     justify-content: space-between;
     height: fit-content;
     grid-area: new-nav;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
 }
 #list-title {
+    /* margin-top: -80px; */
     text-align: center;
     height: 50px;
     width: 100%;
@@ -92,17 +91,25 @@ input:focus {
     cursor: pointer;
 }
 #newListTitle {
+    margin-top: -90px;
     height: fit-content;
     display: flex;
     grid-area: newListTitle;
-    margin-top: -130px;
     border-bottom-style: groove;
     border-color:blanchedalmond;
 }
-#listItems {
+#taskItems {
+    margin-top: -90px;
     height: fit-content;
-    grid-area: listItems;
-    margin-top: -220px;
+    grid-area: taskItems;
+}
+#addNewTaskBtn {
+    grid-area: addNewTaskBtn;
+    height: 100px;
+}
+#btnImg {
+    height: 100px;
+    width: 100%;
 }
 .tasks {
     display: flex;
