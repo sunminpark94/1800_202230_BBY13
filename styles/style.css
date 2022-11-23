@@ -64,10 +64,18 @@ input:focus {
     background-color:bisque;
     transform: scaleY(-10px);
 } 
+
+.titleContainer {
+    display: inline-flex;
+    width: 100%;
+    margin: auto;
+}
+
 .card-title {
     border: none;
     font-weight: 600;
     text-align: center;
+    margin: auto;
 }
 .taskItem {
     margin-left: 10px;

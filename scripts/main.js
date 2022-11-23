@@ -45,6 +45,7 @@ function insertCards() {
       let currentCard = listCard.content.cloneNode(true);
       currentCard.querySelector('.tasks-go-here').setAttribute("id", "0" + taskBodyID);
       currentCard.querySelector('.card-title').innerHTML = listTitle;
+      currentCard.querySelector('.closeButton').setAttribute('id', doc.id);
       // loop for adding in tasks items
       db.collection("users").doc(user.uid).collection("lists").doc(doc.id).collection("tasks")
       .get()
@@ -71,6 +72,29 @@ function insertCards() {
   })
   }
 })
+}
+
+function handleCloseButtonClick(buttonItself) {
+  let idToDelete = buttonItself.getAttribute('id');
+  firebase.auth().onAuthStateChanged((user) => {
+    let doc = db.collection("users").doc(user.uid);
+    doc.collection("lists").get()
+      .then((item) => {
+        for(let i = 0; i < item.docs.length; i++) {
+          if (item.docs[i].id === idToDelete) {
+              const batch = db.batch();
+              batch.delete(item.docs[i].ref);
+              batch.commit();
+          }
+      }
+      })
+  });
+  let container = buttonItself.parentElement.parentElement;
+  container.parentElement.removeChild(container);
+
+  attachEvent('', ()=>{
+
+  });
 }
 
 insertCards();
