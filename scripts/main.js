@@ -155,7 +155,7 @@ function changeCheckboxState(checkbox) {
       //   });
       let currentCheckboxState = checkbox.checked;
 
-      if (currentCheckboxState == true) {
+      if (currentCheckboxState == false) {
         db.collection("users")
           .doc(user.uid)
           .collection("lists")
