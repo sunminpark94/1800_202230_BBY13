@@ -96,13 +96,13 @@ let noOfTasks = 1;
 function addNewTask() {
 
       // Create a clone of element with id t0:
-let clone = document.querySelector('#t0').cloneNode( true );
+let clone = document.getElementById('newTaskTemplate').content.cloneNode( true );
 
 // Change the id attribute of the newly created element:
-clone.setAttribute( 'id', "t" + noOfTasks);
+clone.querySelector('.tasks').setAttribute( 'id', "t" + noOfTasks);
 noOfTasks++;
 console.log(noOfTasks);
-clone.addEventListener('keypress' , function handlePress(event) {
+clone.querySelector('.list-item').addEventListener('keypress' , function handlePress(event) {
   if (event.key === 'Enter') {
     addNewTask();
   }

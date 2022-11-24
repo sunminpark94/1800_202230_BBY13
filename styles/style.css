@@ -1,6 +1,6 @@
 body {
     padding: 25px;
-    background-color:darkorange;
+    background-color:rgba(255, 218, 71, 0.932);
 }
 
 #logMessage {
@@ -60,6 +60,7 @@ input:focus {
 .card {
     display: inline-block;
     margin-bottom: 20px;
+    border-radius: 30px;
 }
 
 .card:hover {
