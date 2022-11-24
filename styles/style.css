@@ -15,7 +15,7 @@ body {
     border-radius: 10px;
     background-color:aliceblue;
     width: 100%;
-    height: 40px;
+    height: 50px;
     text-align: center;
     font-size: larger;
     font-weight: 600;
@@ -25,24 +25,24 @@ body {
     background-repeat: no-repeat;
     background-size: 35px;
     background-position-x: 5px;
+
+    display: block;
+    margin-top: 40px;
+    /* padding: 20px; */
 }
+
 #searchbar::placeholder {
     color:gray;
 }
 #lists-go-here {
-    display: grid;
-    grid-area: list;
-    grid-template-columns: 1fr,1fr;
-    grid-template-areas: 'card card2'
-    'card3 .';
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
 }
 #gridcontainer {
-    display: grid;
-    grid-template-areas:
-    'navbar' 
-    'searchbar'
-    'list';
+    display: block;
     margin-top: 20px;
 }
 
@@ -55,43 +55,46 @@ input:focus {
 }
 
 /* for the template */
-.card-body {
-    border-radius: 15px;
-    background-color:azure;
-    height: 150px;
+.card {
+    display: inline-block;
+    width: 45%;
+    margin-bottom: 40px;
 }
-.card-body:hover {
+
+.card:hover {
     background-color:bisque;
     transform: scaleY(-10px);
 } 
-
-.titleContainer {
-    display: inline-flex;
-    width: 100%;
-    margin: auto;
-}
 
 .card-title {
     border: none;
     font-weight: 600;
     text-align: center;
     margin: auto;
+    display: inline-block;
+}
+
+.closeButton {
+    display: inline-block;
+    float: right;
+    color: black;
+    text-decoration: none;
+}
+
+.taskItemContainer {
+    padding: 15px 0;
+    border: 1px solid rgba(0,0,0,.125);
 }
 .taskItem {
-    margin-left: 10px;
-    display:flex;
-    gap: 10px;
-
+    display: inline-flex;
 }
 .tasks-go-here {
-    margin-top: 20px;
 }
-.taskDetails{
-    font-size:larger;
-}
+
 .taskCheckbox {
-    height: 30px;
-    width: 20px;
+    display: inline-flex;
+    margin: 0 10px;
+    height: 20px;
 }
 /* template end*/
 

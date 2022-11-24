@@ -66,8 +66,8 @@ insertName(); //run the function
     console.log(taskDetail);
     // console.log(currentListID);
       db.collection("users").doc(user.uid).collection("lists").doc(listid).collection("tasks").add({
-      details: taskDetail,
-      state: false
+        details: taskDetail,
+        state: false
       })
     .then(()=> {
       window.location.href = "main.html";

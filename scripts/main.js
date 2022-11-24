@@ -55,14 +55,22 @@ function insertCards() {
           // console.log(doc.id);
           // console.log(doc.data().details)
 
-          var taskDetails = doc.data().details;
+          let taskDetails = doc.data().details;
+          let isChecked = doc.data().state;
 
           let tasksDiv = document.getElementById(taskBodyID);
           let currentTask = taskItem.content.cloneNode(true);
           currentTask.querySelector('.taskItem').setAttribute('id', doc.id);
-          currentTask.querySelector('.taskDetails').innerHTML = taskDetails;
-          currentTask.querySelector('.taskCheckbox').setAttribute('id', "c" + doc.id);
+          let checkbox = currentTask.querySelector('.taskCheckbox')
+          checkbox.setAttribute('id', "c" + doc.id);
+          checkbox.setAttribute('checked', isChecked);
           // currentTask.querySelector('.taskCheckbox').setAttribute('onclick',changeCheckboxState(currentTask.id));
+
+// new code
+          currentTask.querySelector('.taskItem').innerHTML = taskDetails;
+
+// end new code
+
           tasksDiv.appendChild(currentTask);
           // currentTask.setAttribute("id" , doc.id)
         })
@@ -87,13 +95,38 @@ function changeCheckboxState(checkbox) {
   .update({
     "state": true
   });
-  }}
-)}
+  }
+}
+)
+}
 
+// function changeCheckboxState(checkbox) {
+//   firebase.auth().onAuthStateChanged((user) => {
+//     // Check if a user is signed in:
+//     if (user) {
+//       let currentTaskID = checkbox.nextElementSibling.getAttribute('id');
+//       let currentListID = checkbox.parentElement.parentElement.getAttribute('id');
+
+//       db.collection("users").doc(user.uid).collection("lists").doc(currentListID).collection("tasks").get()
+//       .then((snap2) => {
+//         snap2.forEach((doc) => {
+//           if (doc.id === currentTaskID) {
+//             const data = doc.data();
+//             // const batch = db.batch();
+//             doc.ref.update(doc.ref, { 
+//               'state': !data.state || false,
+//               'details': data.details
+//             });
+//             // batch.commit();
+//           }
+//         });
+//       });
+//     }
+//   })
 
 function handleCloseButtonClick(buttonItself) {
   let idToDelete = buttonItself.getAttribute('id');
-  idToDelete = idToDelete.substring(1, idToDelete.length());
+  idToDelete = idToDelete.substring(1);
   firebase.auth().onAuthStateChanged((user) => {
     let doc = db.collection("users").doc(user.uid);
     doc.collection("lists").get()
@@ -107,170 +140,12 @@ function handleCloseButtonClick(buttonItself) {
       }
       })
   });
-  let container = buttonItself.parentElement.parentElement;
-  container.parentElement.removeChild(container);
 
-  attachEvent('', ()=>{
-
-  });
+  let pointer = buttonItself;
+  while (pointer.className !== 'card') {
+    pointer = pointer.parentElement;
+  }
+  pointer.parentElement.removeChild(pointer);
 }
 
 insertCards();
-
-// function insertCards() {
-//   let card = document.getElementById("cards");
-//   let listDiv = document.getElementById("list");
-
-//   firebase.auth().onAuthStateChanged((user) => {
-//     // Check if a user is signed in:
-//     if (user) {
-
-//       // Do something for the currently logged-in user here:
-//       console.log(user.uid);
-//       console.log(user.displayName);
-//       user_Name = user.displayName;
-
-//   db.collection("users").doc(user.uid).collection("lists")
-//   .get()
-//   .then(function (snap) {
-//     snap.forEach(function(doc) {
-//       // let currentListID = doc.id;
-//       console.log(doc.data().title)
-//       // document.getElementsByClassName("listTitle1").innerText = doc.data().title;
-//       var listTitle = doc.data().title;
-
-//       let testCard = card.content.cloneNode(true);
-//       testCard.querySelector('.card-title').innerHTML = listTitle;
-//       // loop for adding in tasks items
-//       db.collection("users").doc(user.uid).collection("lists").doc(doc.id).collection("tasks")
-//       .get()
-//       .then(function (snap2) {
-//         let taskItem = document.getElementById("taskItem");
-//         let taskList = document.getElementById("card-body");
-
-//         snap2.forEach(function(doc) {
-//           console.log(doc.data().details)
-
-//           var taskDetails = doc.data().details;
-
-//           let testTask = taskItem.content.cloneNode(true);
-//           testTask.querySelector('.taskDetails').innerHTML = taskDetails;
-//           taskList.appendChild(testTask);
-//         })
-//       }
-//       )
-//       listDiv.appendChild(testCard);
-//     })
-//   })
-//   }
-// })
-// }
-
-// insertCards();
-
-// function insertCards() {
-//   let listCardTemplate = document.getElementById("listCardTemplate");
-//   let listDiv = document.getElementById("lists-go-here");  //
-
-//   firebase.auth().onAuthStateChanged((user) => {
-//     // Check if a user is signed in:
-//     if (user) {
-//       // Do something for the currently logged-in user here:
-//       console.log(user.uid);
-//       console.log(user.displayName);
-//       user_Name = user.displayName;
-
-//       db.collection("users")
-//         .doc(user.uid)
-//         .collection("lists")
-//         .orderBy("timestamp")
-//         .get()
-//         .then(function (snap) {
-//           snap.forEach(function (doc) {
-//             let currentListID = doc.id;
-//             console.log(doc.data().title);
-//             // document.getElementsByClassName("listTitle1").innerText = doc.data().title;
-//             var listTitle = doc.data().title;
-
-//             let taskCard = taskCardTemplate.content.cloneNode(true);
-//             taskCard.querySelector(".card-title").innerHTML = listTitle;
-
-//             // loop for adding in tasks items
-//             db.collection("users")
-//               .doc(user.uid)
-//               .collection("lists")
-//               .doc(doc.id)
-//               .collection("tasks")
-//               .get()
-//               .then(function (snap2) {
-//                 let taskCardTemplate = document.getElementById("taskCardTemplate");
-
-//                 testCard.querySelector('.card-body').setAttribute("id", currentListID)
-//                 //
-
-//                 snap2.forEach(function (doc) {
-//                   console.log(doc.data().details);
-
-//                   var taskDetails = doc.data().details;
-
-//                   let testTask = taskItem.content.cloneNode(true);
-//                   testTask.querySelector(".taskDetails").innerHTML =
-//                     taskDetails;
-//                     let divToAppendTo = document.getElementById(currentListID);
-//                     taskItem.appendChild(testTask);
-//                 });
-//               });
-//             listDiv.appendChild(testCard);
-//           });
-//         });
-//     }
-//   });
-// }
-
-// insertCards();
-
-//   function insertTitle() {
-//     firebase.auth().onAuthStateChanged((user) => {
-//       // Check if a user is signed in:
-//       if (user) {
-
-//         // Do something for the currently logged-in user here:
-//         console.log(user.uid);
-//         console.log(user.displayName);
-//         user_Name = user.displayName;
-
-//     db.collection("users").doc(user.uid).collection("lists")
-//     .get()
-//     .then(function (snap) {
-//       snap.forEach(function(doc) {
-//         console.log(doc.data().title)
-//         document.getElementById("listTitle1").innerText = doc.data().title;
-//       })
-//     })
-//     }
-// })
-// }
-// insertTitle();
-
-// // function insertTask() {
-// //   firebase.auth().onAuthStateChanged((user) => {
-// //     // Check if a user is signed in:
-// //     if (user) {
-
-// //       // Do something for the currently logged-in user here:
-// //       console.log(user.uid);
-// //       console.log(user.displayName);
-// //       user_Name = user.displayName;
-
-// //   db.collection("users").doc(user.uid).collection("lists").doc("list1").collection("tasks")
-// //   .get()
-// //   .then(function (snap) {
-// //     snap.forEach(function(doc) {
-// //       console.log(doc.data().details)
-// //       document.getElementById("listTask1").innerText = doc.data().details;
-// //     })
-// //   })
-// //   }
-// // })
-// // }
-// // insertTask();

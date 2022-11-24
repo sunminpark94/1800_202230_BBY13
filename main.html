@@ -103,22 +103,24 @@
     </nav>
 
     <template id="listCardTemplate">
-      <div class="card-body"> 
-        <div class="titleContainer">
+      <div class="card">
+        <div class="card-header">
           <h3 class="card-title"></h3>
-          <button class="closeButton" onclick="handleCloseButtonClick(this)">X</button>
+          <button class="closeButton btn btn-link" onclick="handleCloseButtonClick(this)">X</button>
         </div>
-        
-        <div class="tasks-go-here">
-
-        </div>
+        <ul class="tasks-go-here list-group list-group-flush">
+        </ul>
       </div>
     </template>
 
     <template id="taskItemTemplate">
-      <div class="taskItem">
+      <!-- <div class="taskItem"> -->
+        <!-- <input type="checkbox" value="" class="taskCheckbox" onclick="changeCheckboxState(this)">
+        <p class="taskDetails"></p> -->
+      <!-- </div> -->
+      <div class="taskItemContainer">
         <input type="checkbox" value="" class="taskCheckbox" onclick="changeCheckboxState(this)">
-        <p class="taskDetails"></p>
+        <li class="taskItem fs-5"></li>
       </div>
     </template>
 
