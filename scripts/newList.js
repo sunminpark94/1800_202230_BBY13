@@ -6,8 +6,8 @@ function insertName() {
     if (user) {
       
       // Do something for the currently logged-in user here:
-      console.log(user.uid);
-      console.log(user.displayName);
+      // console.log(user.uid);
+      // console.log(user.displayName);
       user_Name = user.displayName;
 
       //method #1:  insert with html only
@@ -22,38 +22,66 @@ function insertName() {
 }
 insertName(); //run the function
 
+
+// var currentListID = "";
   function saveNewList() {
 
         let listTitle = document.getElementById('list-title').value;
+
         // let listItem = document.getElementById('list-item').value;
         console.log(listTitle);
 
         firebase.auth().onAuthStateChanged((user) => {
           // Check if a user is signed in:
           if (user) {
-            var currentUser = db.collection("users").doc(user.uid).collection("lists")
+            var currentList = db.collection("users").doc(user.uid).collection("lists")
             var userID = user.uid;
 
-            currentUser.get()
+            currentList.get()
               .then(userDoc => {
                 db.collection("users").doc(user.uid).collection("lists").add({
                   title: listTitle,
                   timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                }).then((doc)=>{
+                  for (var i = 0; i < noOfTasks; i++) {
+                    saveTasks(doc.id, "t" + i);
+                  }
                 })
-                .then(()=> {
-                  window.location.href = "main.html";
-                })
+
+                // let currentListID = userDoc.id; // trying to get id for the newly created list (in firebase)
+                // that just has a list title for now 
+
               })
       }
     })
   }
 
+  function saveTasks(listid, currentTask){
+
+    firebase.auth().onAuthStateChanged((user) => {
+      // Check if a user is signed in:
+      if (user) {
+    let currentTaskDiv = document.getElementById(currentTask);
+    let taskDetail = currentTaskDiv.querySelector(".list-item").value;
+    console.log(taskDetail);
+    // console.log(currentListID);
+      db.collection("users").doc(user.uid).collection("lists").doc(listid).collection("tasks").add({
+      details: taskDetail,
+      state: false
+      })
+    .then(()=> {
+      window.location.href = "main.html";
+    })
+      
+  }}
+)}
+// console.log("newly created list id" + currentListID);
 // const listItems = document.querySelectorAll('.list-item');
 // x = 0;
 // listItems.forEach(listitem => {
 //   listitem.addEventListener('click', function handleClick(event) {
 //     console.log('listitem clicked', event);
-//     x += 1;
+//     x += 1;u
 //     addNewTask();
 //   });
 // });

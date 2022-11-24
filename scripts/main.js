@@ -3,8 +3,8 @@ function insertName() {
     // Check if a user is signed in:
     if (user) {
       // Do something for the currently logged-in user here:
-      console.log(user.uid);
-      console.log(user.displayName);
+      // console.log(user.uid);
+      // console.log(user.displayName);
       user_Name = user.displayName;
 
       //method #1:  insert with html only
@@ -28,8 +28,8 @@ function insertCards() {
     if (user) {
 
       // Do something for the currently logged-in user here:
-      console.log(user.uid);
-      console.log(user.displayName);
+      // console.log(user.uid);
+      // console.log(user.displayName);
       user_Name = user.displayName;
 
   db.collection("users").doc(user.uid).collection("lists")
@@ -37,15 +37,12 @@ function insertCards() {
   .then(function (snap) {
     snap.forEach(function(doc) {
       let taskBodyID = doc.id;
-      // let currentListID = doc.id;
-      // console.log(doc.id);
-      // document.getElementsByClassName("listTitle1").innerText = doc.data().title;
       var listTitle = doc.data().title;
 
       let currentCard = listCard.content.cloneNode(true);
-      currentCard.querySelector('.tasks-go-here').setAttribute("id", "0" + taskBodyID);
+      currentCard.querySelector('.tasks-go-here').setAttribute("id", taskBodyID);
       currentCard.querySelector('.card-title').innerHTML = listTitle;
-      currentCard.querySelector('.closeButton').setAttribute('id', doc.id);
+      currentCard.querySelector('.closeButton').setAttribute('id', "0" + doc.id);
       // loop for adding in tasks items
       db.collection("users").doc(user.uid).collection("lists").doc(doc.id).collection("tasks")
       .get()
@@ -54,16 +51,20 @@ function insertCards() {
         // let taskList = document.getElementById("tasks-go-here");
 
         snap2.forEach(function(doc) {
-
           console.log(doc.id);
-          console.log(doc.data().details)
+          // console.log(doc.id);
+          // console.log(doc.data().details)
 
           var taskDetails = doc.data().details;
 
-          let tasksDiv = document.getElementById("0" + taskBodyID);
+          let tasksDiv = document.getElementById(taskBodyID);
           let currentTask = taskItem.content.cloneNode(true);
+          currentTask.querySelector('.taskItem').setAttribute('id', doc.id);
           currentTask.querySelector('.taskDetails').innerHTML = taskDetails;
+          currentTask.querySelector('.taskCheckbox').setAttribute('id', "c" + doc.id);
+          // currentTask.querySelector('.taskCheckbox').setAttribute('onclick',changeCheckboxState(currentTask.id));
           tasksDiv.appendChild(currentTask);
+          // currentTask.setAttribute("id" , doc.id)
         })
       }
       )
@@ -73,15 +74,32 @@ function insertCards() {
   }
 })
 }
+function changeCheckboxState(checkbox) {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if a user is signed in:
+    if (user) {
+  let currentTaskID = checkbox.parentElement.getAttribute('id');
+  console.log(currentTaskID);
+  let currentListID = checkbox.parentElement.parentElement.getAttribute('id');
+  console.log(currentListID);
+  currentTaskID.addEventListener
+  db.collection("users").doc(user.uid).collection("lists").doc(currentListID).collection("tasks").doc(currentTaskID)
+  .update({
+    "state": true
+  });
+  }}
+)}
+
 
 function handleCloseButtonClick(buttonItself) {
   let idToDelete = buttonItself.getAttribute('id');
+  idToDelete = idToDelete.substring(1, idToDelete.length());
   firebase.auth().onAuthStateChanged((user) => {
     let doc = db.collection("users").doc(user.uid);
     doc.collection("lists").get()
       .then((item) => {
         for(let i = 0; i < item.docs.length; i++) {
-          if (item.docs[i].id === idToDelete) {
+          if (item.docs[i].id === (idToDelete)) {
               const batch = db.batch();
               batch.delete(item.docs[i].ref);
               batch.commit();

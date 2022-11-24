@@ -109,7 +109,7 @@
           <button class="closeButton" onclick="handleCloseButtonClick(this)">X</button>
         </div>
         
-        <div id ="0" class="tasks-go-here">
+        <div class="tasks-go-here">
 
         </div>
       </div>
@@ -117,7 +117,7 @@
 
     <template id="taskItemTemplate">
       <div class="taskItem">
-        <input type="checkbox" value="" class="taskCheckbox">
+        <input type="checkbox" value="" class="taskCheckbox" onclick="changeCheckboxState(this)">
         <p class="taskDetails"></p>
       </div>
     </template>
