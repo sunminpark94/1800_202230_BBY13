@@ -60,7 +60,7 @@ function insertCards() {
 
           let tasksDiv = document.getElementById(taskBodyID);
           let currentTask = taskItem.content.cloneNode(true);
-          currentTask.querySelector('.taskItem').setAttribute('id', doc.id);
+          currentTask.querySelector('.taskItemContainer').setAttribute('id', doc.id);
           let checkbox = currentTask.querySelector('.taskCheckbox')
           checkbox.setAttribute('id', "c" + doc.id);
           checkbox.setAttribute('checked', isChecked);
@@ -90,7 +90,7 @@ function changeCheckboxState(checkbox) {
   console.log(currentTaskID);
   let currentListID = checkbox.parentElement.parentElement.getAttribute('id');
   console.log(currentListID);
-  currentTaskID.addEventListener
+  // currentTaskID.addEventListener
   db.collection("users").doc(user.uid).collection("lists").doc(currentListID).collection("tasks").doc(currentTaskID)
   .update({
     "state": true

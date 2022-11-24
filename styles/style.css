@@ -35,15 +35,17 @@ body {
     color:gray;
 }
 #lists-go-here {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    /* justify-content: space-between;
     text-align: justify;
     -ms-text-justify: distribute-all-lines;
-    text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines; */
 }
 #gridcontainer {
     display: block;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 input {
@@ -57,8 +59,7 @@ input:focus {
 /* for the template */
 .card {
     display: inline-block;
-    width: 45%;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .card:hover {
