@@ -111,3 +111,8 @@ clone.addEventListener('keypress' , function handlePress(event) {
 document.querySelector('#taskItems').appendChild( clone );
 }
 
+function confirmClose() {
+  if (confirm("Are you sure you want to discard your new list?") == true) {
+    window.location.href = "main.html";
+  }
+}
