@@ -34,12 +34,13 @@ input:focus {
     font-weight: 600;
 }
 #btn {
-    margin-top: 50px;
+    margin-top: auto;
     margin-right: 20px;
     float: right;
+    position: sticky;
 }
 #container {
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: white;
     margin-top: 50px;
     height: 500px;
