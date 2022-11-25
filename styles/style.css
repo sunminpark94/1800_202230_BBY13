@@ -91,8 +91,6 @@ input:focus {
 .taskItem {
     display: inline-flex;
 }
-.tasks-go-here {
-}
 
 .taskCheckbox {
     display: inline-flex;
@@ -120,11 +118,10 @@ input:focus {
 }
 
 #btn {
-    margin-top: 50px;
-    margin-right: 20px;
-    float: right;
+    margin-bottom: 5%;
+    margin-left: 80%;
+    position: fixed;
 }
 #new-nav {
     display: flex;
 }
-
