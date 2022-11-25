@@ -141,18 +141,6 @@ function changeCheckboxState(checkbox) {
       // console.log(currentTaskID);
       let currentListID =
         checkbox.parentElement.parentElement.getAttribute("id");
-      // console.log(currentListID);
-      // currentTaskID.addEventListener
-      // db.collection("users")
-      //   .doc(user.uid)
-      //   .collection("lists")
-      //   .doc(currentListID)
-      //   .collection("tasks")
-      //   .doc(currentTaskID)
-      //   .get()
-      //   .then((doc) => {
-      //     currentCheckboxState = doc.data().state;
-      //   });
       let currentCheckboxState = checkbox.checked;
 
       if (currentCheckboxState == false) {
@@ -179,35 +167,6 @@ function changeCheckboxState(checkbox) {
     }
   });
 }
-
-
-// function getCheckboxState(doc) {
-//   return doc.id;
-// }
-
-// function changeCheckboxState(checkbox) {
-//   firebase.auth().onAuthStateChanged((user) => {
-//     // Check if a user is signed in:
-//     if (user) {
-//       let currentTaskID = checkbox.nextElementSibling.getAttribute('id');
-//       let currentListID = checkbox.parentElement.parentElement.getAttribute('id');
-
-//       db.collection("users").doc(user.uid).collection("lists").doc(currentListID).collection("tasks").get()
-//       .then((snap2) => {
-//         snap2.forEach((doc) => {
-//           if (doc.id === currentTaskID) {
-//             const data = doc.data();
-//             // const batch = db.batch();
-//             doc.ref.update(doc.ref, {
-//               'state': !data.state || false,
-//               'details': data.details
-//             });
-//             // batch.commit();
-//           }
-//         });
-//       });
-//     }
-//   })
 
 function handleCloseButtonClick(buttonItself) {
   let idToDelete = buttonItself.getAttribute("id");

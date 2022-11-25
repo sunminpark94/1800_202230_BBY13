@@ -75,16 +75,7 @@ insertName(); //run the function
       
   }}
 )}
-// console.log("newly created list id" + currentListID);
-// const listItems = document.querySelectorAll('.list-item');
-// x = 0;
-// listItems.forEach(listitem => {
-//   listitem.addEventListener('click', function handleClick(event) {
-//     console.log('listitem clicked', event);
-//     x += 1;u
-//     addNewTask();
-//   });
-// });
+
 document.querySelector('.list-item').addEventListener('keypress' , function handlePress(event) {
   if (event.key === 'Enter') {
     addNewTask();
