@@ -34,6 +34,21 @@ body {
 #searchbar::placeholder {
     color:gray;
 }
+
+/* nav bar */
+#navTitle {
+    display: inline-flex;
+    text-align: center;
+}
+#new-nav {
+    display: flex;
+}
+
+#navbar-brand {
+    display: inline-flex;
+}
+/*nav bar ends */
+
 #lists-go-here {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -95,8 +110,8 @@ input:focus {
 .taskCheckbox {
     display: inline-flex;
     margin: 0 10px;
-    height: 20px;
 }
+
 /* template end*/
 
 .btn-circle.btn-xl {
@@ -121,7 +136,4 @@ input:focus {
     margin-bottom: 5%;
     margin-left: 80%;
     position: fixed;
-}
-#new-nav {
-    display: flex;
 }
