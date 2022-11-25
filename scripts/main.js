@@ -141,18 +141,6 @@ function changeCheckboxState(checkbox) {
       // console.log(currentTaskID);
       let currentListID =
         checkbox.parentElement.parentElement.getAttribute("id");
-      // console.log(currentListID);
-      // currentTaskID.addEventListener
-      // db.collection("users")
-      //   .doc(user.uid)
-      //   .collection("lists")
-      //   .doc(currentListID)
-      //   .collection("tasks")
-      //   .doc(currentTaskID)
-      //   .get()
-      //   .then((doc) => {
-      //     currentCheckboxState = doc.data().state;
-      //   });
       let currentCheckboxState = checkbox.checked;
 
       if (currentCheckboxState == false) {

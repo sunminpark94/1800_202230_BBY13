@@ -65,7 +65,7 @@ input:focus {
 }
 
 .card:hover {
-    background-color:bisque;
+    background-color: aliceblue;
     transform: scaleY(-10px);
 } 
 
