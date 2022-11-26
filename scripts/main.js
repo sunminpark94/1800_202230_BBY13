@@ -57,6 +57,7 @@ function insertCards() {
               .collection("tasks")
               .get()
               .then(function (snap2) {
+
                 let taskItem = document.getElementById("taskItemTemplate");
                 // let taskList = document.getElementById("tasks-go-here");
 
@@ -102,10 +103,30 @@ function insertCards() {
             listDiv.appendChild(currentCard);
           });
         });
+        console.log();
+        if (document.querySelectorAll('.card').length == 0) {
+          console.log(document.querySelectorAll('.card').length);
+          let currentCard = listCard.content.cloneNode(true);
+          currentCard.querySelector(".card-title").innerHTML = "Click + to add new List";
+          currentCard.querySelector('.card').setAttribute('id', 'welcome');
+          listDiv.appendChild(currentCard);
+          } else if (querySelectorAll('.card').length > 1) {
+            document.getElementById('welcome').remove();
+            console.log('hey');
+          }
     }
   });
 }
 insertCards();
+
+function incrementCurrent() {
+  current++;
+}
+
+function decrementCurrent() {
+  current--;
+}
+
 
 // get search bar element
 const searchInput = document.getElementById("searchbar");
@@ -193,5 +214,7 @@ function handleCloseButtonClick(buttonItself) {
   }
   pointer.parentElement.removeChild(pointer);
 }
+// console.log(current);
+console.log(document.querySelectorAll('.card').length);
 
 

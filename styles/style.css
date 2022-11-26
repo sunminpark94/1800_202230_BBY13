@@ -8,6 +8,9 @@ body {
     font-size:xx-large;
     margin-top: 50px;
 }
+/* #navTitle {
+    margin-left: 120px;
+} */
 
 #searchbar {
     grid-area: searchbar;
@@ -34,18 +37,22 @@ body {
 #searchbar::placeholder {
     color:gray;
 }
+#logoimg {
+    margin-left: 10px;
+}
+#navbar {
+    background-color: rgb(210, 167, 27);
+    border: 1px solid white;
+    border-radius: 10px;
+}
 
 /* nav bar */
 #navTitle {
     display: inline-flex;
-    text-align: center;
+    align-self: center;
 }
 #new-nav {
     display: flex;
-}
-
-#navbar-brand {
-    display: inline-flex;
 }
 /*nav bar ends */
 
