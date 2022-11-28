@@ -13,7 +13,7 @@ body {
 } */
 
 #intro {
-    font-size: 700%;
+    font-size: 600%;
 }
 #searchbar {
     grid-area: searchbar;
