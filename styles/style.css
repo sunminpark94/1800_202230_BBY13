@@ -12,6 +12,9 @@ body {
     margin-left: 120px;
 } */
 
+#intro {
+    font-size: 700%;
+}
 #searchbar {
     grid-area: searchbar;
     margin-bottom: 40px;

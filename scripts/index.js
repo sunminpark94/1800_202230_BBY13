@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',function(event){
   // array with texts to type in typewriter
-  var messages = ["TA-DA"];
+  var messages = ["\u2713 TA-DA"];
 
   function typeWriter(text, index , messageIndex) {
       if (index < text.length) {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded',function(event){
       } else {
           setTimeout(function() {
               iterateThroughMessages(messageIndex + 1);
-          }, 500);
+          }, 700);
       }
   }
 
