@@ -100,7 +100,7 @@ function insertCards() {
                   // currentTask.setAttribute("id" , doc.id)
                 });
                 
-                if (querySelectorAll('.card').length > 1) {
+                if (document.querySelectorAll('.card').length > 1) {
                   document.getElementById('welcome').remove();
                 }
 
@@ -111,7 +111,7 @@ function insertCards() {
           if (document.querySelectorAll('.card').length == 0) {
             console.log(document.querySelectorAll('.card').length);
             let currentCard = listCard.content.cloneNode(true);
-            currentCard.querySelector(".card-title").innerHTML = "Click + to add new List";
+            currentCard.querySelector(".card-title").innerHTML = "Click (+) below to create a list";
             currentCard.querySelector('.card').setAttribute('id', 'welcome');
             listDiv.appendChild(currentCard);
           } 
