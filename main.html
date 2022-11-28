@@ -51,14 +51,17 @@
     <!-- our own navbar goes here -->
     <div id="navbar">
         <img src="./images/logo2-modified.png" id="logoimg" height="40px"/>
-        <p id= "navTitle"><span id="name-goes-here"></span>'s List</p>
+        <p id= "navTitle"><span id="name-goes-here"></span>'s List
+        </p>
     </div>
 
     <template id="listCardTemplate">
       <div class="card" onclick="">
         <div class="card-header">
           <h3 class="card-title"></h3>
-          <button class="closeButton btn btn-link" onclick="handleCloseButtonClick(this)">X</button>
+          <button class="closeButton btn btn-link" 
+          onclick="handleCloseButtonClick(this)">X
+        </button>
         </div>
         <div class="tasks-go-here list-group list-group-flush">
         </div>
@@ -71,7 +74,10 @@
         <p class="taskDetails"></p> -->
       <!-- </div> -->
       <div class="taskItemContainer">
-        <input type="checkbox" value="" class="taskCheckbox" onclick="changeCheckboxState(this)">
+        <input type="checkbox" 
+        value="" 
+        class="taskCheckbox" 
+        onclick="changeCheckboxState(this)">
         <li class="taskItem fs-5"></li>
       </div>
     </template>
@@ -89,9 +95,14 @@
 
     <!-- our own footer goes here-->
     <footer>
-      <button type="button" class="btn btn-warning btn-circle btn-xl fixed-bottom" id="btn" onclick="location.href='newList.html'">
+      <button type="button" 
+      class="btn btn-warning btn-circle btn-xl fixed-bottom" 
+      id="btn" 
+      onclick="location.href='newList.html'">
         <i class="fa fa-times"
-          ><img src="images/PngItem_679828.png" alt="" id="icon"
+          ><img src="images/PngItem_679828.png" 
+          alt="" 
+          id="icon"
         /></i>
       </button>
     </footer>

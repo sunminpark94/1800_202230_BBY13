@@ -48,17 +48,13 @@
 
   </head>
 
-
-
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
     <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="./images/logo2-modified.png" height="36" />
-            TADA welcomes you, <span id="name-goes-here"></span></a
-          >
+            TADA welcomes you, <span id="name-goes-here"></span>
+            </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -70,10 +66,15 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div 
+          class="collapse navbar-collapse" 
+          id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a 
+                class="nav-link active" 
+                aria-current="page" 
+                href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -89,17 +90,25 @@
                 >
                   Dropdown
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
+                <ul 
+                class="dropdown-menu" 
+                aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="#">Action</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Another action</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" /></li>
                   <li>
                     <a class="dropdown-item" href="#">Something else here</a>
                   </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link disabled">Disabled
+                </a>
               </li>
             </ul>
           </div>
@@ -108,42 +117,43 @@
 
       <div id="container">
         <div id="new-nav">
-          <div><img src="/images/cross.svg" alt="Close" id="navButton1" onclick="confirmClose()"></div>
+          <div><img src="/images/cross.svg" 
+            alt="Close" 
+            id="navButton1" 
+            onclick="confirmClose()"></div>
           <div><span id="message">NEW LIST</span></div>
-          <div><img src="/images/check-tick-svgrepo-com.svg" alt="Close" id="navButton2" onclick="saveNewList()"></div>
+          <div><img src="/images/check-tick-svgrepo-com.svg" 
+            alt="Close" 
+            id="navButton2" 
+            onclick="saveNewList()"></div>
         </div>
         <div id="newListTitle">
-          <input id="list-title" type="text" placeholder="Insert List Title Here"/>
+          <input id="list-title" 
+          type="text" 
+          placeholder="Insert List Title Here"/>
         </div>
         <div id="taskItems">
           <div class="tasks" id="t0">
-            <input type="checkbox" value="option1" class="taskCheckbox">
-            <input type="text" class="list-item" placeholder="Add to-do item">
+            <input type="checkbox" 
+            value="option1" 
+            class="taskCheckbox">
+            <input type="text" 
+            class="list-item" 
+            placeholder="Add to-do item">
           </div>
-          
-          <!-- <div class="tasks">
-            <input type="checkbox" value="option1" class="taskCheckbox">
-            <input type="text" class="list-item" placeholder="Add to-do item">
-          </div>
-          <div class="tasks">
-            <input type="checkbox" value="option1" class="taskCheckbox">
-            <input type="text" class="list-item" placeholder="Add to-do item">
-          </div> -->
         </div>
-        
       </div>
 
       <template id="newTaskTemplate">
         <div class="tasks">
-          <input type="checkbox" value="option1" class="taskCheckbox">
-          <input type="text" class="list-item" placeholder="Add to-do item">
+          <input type="checkbox" 
+          value="option1" 
+          class="taskCheckbox">
+          <input type="text" 
+          class="list-item" 
+          placeholder="Add to-do item">
         </div>
       </template>
-
-      <!------------------------------>
-      <!---------------------------------------------->
-      <!-- Your own JavaScript functions go here    -->
-      <!---------------------------------------------->
 
       <!-- Link to scripts of your own -->
       <script src="./scripts/firebaseAPI_TEAM13.js"></script>
