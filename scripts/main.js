@@ -99,21 +99,25 @@ function insertCards() {
                   tasksDiv.appendChild(currentTask);
                   // currentTask.setAttribute("id" , doc.id)
                 });
+                
+                if (querySelectorAll('.card').length > 1) {
+                  document.getElementById('welcome').remove();
+                }
+
               });
             listDiv.appendChild(currentCard);
           });
+
+          if (document.querySelectorAll('.card').length == 0) {
+            console.log(document.querySelectorAll('.card').length);
+            let currentCard = listCard.content.cloneNode(true);
+            currentCard.querySelector(".card-title").innerHTML = "Click + to add new List";
+            currentCard.querySelector('.card').setAttribute('id', 'welcome');
+            listDiv.appendChild(currentCard);
+          } 
         });
         console.log();
-        if (document.querySelectorAll('.card').length == 0) {
-          console.log(document.querySelectorAll('.card').length);
-          let currentCard = listCard.content.cloneNode(true);
-          currentCard.querySelector(".card-title").innerHTML = "Click + to add new List";
-          currentCard.querySelector('.card').setAttribute('id', 'welcome');
-          listDiv.appendChild(currentCard);
-          } else if (querySelectorAll('.card').length > 1) {
-            document.getElementById('welcome').remove();
-            console.log('hey');
-          }
+        
     }
   });
 }
@@ -213,6 +217,16 @@ function handleCloseButtonClick(buttonItself) {
     pointer = pointer.parentElement;
   }
   pointer.parentElement.removeChild(pointer);
+  let listCard = document.getElementById("listCardTemplate");
+  let listDiv = document.getElementById("lists-go-here");
+
+  if (document.querySelectorAll('.card').length == 0) {
+    console.log(document.querySelectorAll('.card').length);
+    let currentCard = listCard.content.cloneNode(true);
+    currentCard.querySelector(".card-title").innerHTML = "Click + to add new List";
+    currentCard.querySelector('.card').setAttribute('id', 'welcome');
+    listDiv.appendChild(currentCard);
+  } 
 }
 // console.log(current);
 console.log(document.querySelectorAll('.card').length);
