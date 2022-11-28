@@ -45,12 +45,6 @@ body {
 }
 
 /* nav bar */
-/* #navbar {
-  background-color: #ffd100;
-  border-radius: 10px;
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
-} */
 #navTitle {
   display: inline-flex;
   align-self: center;
