@@ -26,7 +26,7 @@ input:focus {
   margin-bottom: 8px;
 }
 #name-goes-here {
-    justify-content: center;
+  justify-content: center;
 }
 #message {
   font-size: x-large;
@@ -127,15 +127,14 @@ input:focus {
 }
 /* nav bar */
 #navbar {
-    background-color: #ffd100;
-    border-radius: 10px;
-  }
-  #navTitle {
-    display: inline-flex;
-    align-self: center;
-  }
-  #new-nav {
-    display: flex;
-  }
-  /*nav bar ends */
-  
+  background-color: #ffd100;
+  border-radius: 10px;
+}
+#navTitle {
+  display: inline-flex;
+  align-self: center;
+}
+#new-nav {
+  display: flex;
+}
+/*nav bar ends */

@@ -4,104 +4,107 @@ function insertName() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if a user is signed in:
     if (user) {
-      
-      // Do something for the currently logged-in user here:
-      // console.log(user.uid);
-      // console.log(user.displayName);
       user_Name = user.displayName;
-
-      //method #1:  insert with html only
-      // document.getElementById("name-goes-here").innerText = fullName;    //using javascript
-      document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
-      //method #2:  insert using jquery
-      // $("#name-goes-here").text(user_Name); //using jquery
+      document.getElementById("name-goes-here").innerText = user_Name; //using javascript
     } else {
       // No user is signed in.
+      console.log("no user signed in");
     }
   });
 }
 insertName(); //run the function
 
+// function that gets invoked when the user presses the save list button
+function saveNewList() {
+  // fetch list title entered by the user.
+  let listTitle = document.getElementById("list-title").value;
 
-// var currentListID = "";
-  function saveNewList() {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if a user is signed in:
+    if (user) {
+      var currentList = db
+        .collection("users")
+        .doc(user.uid)
+        .collection("lists");
+      var userID = user.uid;
 
-        let listTitle = document.getElementById('list-title').value;
+      // updating the list title in the database.
+      currentList.get().then((userDoc) => {
+        db.collection("users")
+          .doc(user.uid)
+          .collection("lists")
+          .add({
+            title: listTitle,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          })
+          .then((doc) => {
+            for (var i = 0; i < noOfTasks; i++) {
+              saveTasks(doc.id, "t" + i); // calling in the save tasks function.
+            }
+          });
+      });
+    }
+  });
+}
 
-        // let listItem = document.getElementById('list-item').value;
-        console.log(listTitle);
-
-        firebase.auth().onAuthStateChanged((user) => {
-          // Check if a user is signed in:
-          if (user) {
-            var currentList = db.collection("users").doc(user.uid).collection("lists")
-            var userID = user.uid;
-
-            currentList.get()
-              .then(userDoc => {
-                db.collection("users").doc(user.uid).collection("lists").add({
-                  title: listTitle,
-                  timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                }).then((doc)=>{
-                  for (var i = 0; i < noOfTasks; i++) {
-                    saveTasks(doc.id, "t" + i);
-                  }
-                })
-
-                // let currentListID = userDoc.id; // trying to get id for the newly created list (in firebase)
-                // that just has a list title for now 
-
-              })
-      }
-    })
-  }
-
-  function saveTasks(listid, currentTask){
-
-    firebase.auth().onAuthStateChanged((user) => {
-      // Check if a user is signed in:
-      if (user) {
-    let currentTaskDiv = document.getElementById(currentTask);
-    let taskDetail = currentTaskDiv.querySelector(".list-item").value;
-    console.log(taskDetail);
-    // console.log(currentListID);
-      db.collection("users").doc(user.uid).collection("lists").doc(listid).collection("tasks").add({
-        details: taskDetail,
-        state: false
-      })
-    .then(()=> {
-      window.location.href = "main.html";
-    })
-      
-  }}
-)}
-
-document.querySelector('.list-item').addEventListener('keypress' , function handlePress(event) {
-  if (event.key === 'Enter') {
-    addNewTask();
-  }
-
-})
+// function to save tasks to the database
+// the listid, parameter is the list id within database the tasks will be saved to, and the currentTask is the id of the div the function is currently reading a task from.
+function saveTasks(listid, currentTask) {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if a user is signed in:
+    if (user) {
+      let currentTaskDiv = document.getElementById(currentTask);
+      let taskDetail = currentTaskDiv.querySelector(".list-item").value;
+      console.log(taskDetail);
+      // console.log(currentListID);
+      db.collection("users")
+        .doc(user.uid)
+        .collection("lists")
+        .doc(listid)
+        .collection("tasks")
+        .add({
+          details: taskDetail,
+          state: false,
+        })
+        .then(() => {
+          window.location.href = "main.html";
+        });
+    }
+  });
+}
+// event listener for list item in the list.
+document
+  .querySelector(".list-item")
+  .addEventListener("keypress", function handlePress(event) {
+    if (event.key === "Enter") {
+      addNewTask();
+    }
+  });
 
 let noOfTasks = 1;
 function addNewTask() {
+  // Create a clone of element with id t0:
+  let clone = document
+    .getElementById("newTaskTemplate")
+    .content.cloneNode(true);
 
-      // Create a clone of element with id t0:
-let clone = document.getElementById('newTaskTemplate').content.cloneNode( true );
-
-// Change the id attribute of the newly created element:
-clone.querySelector('.tasks').setAttribute( 'id', "t" + noOfTasks);
-noOfTasks++;
-console.log(noOfTasks);
-clone.querySelector('.list-item').addEventListener('keypress' , function handlePress(event) {
-  if (event.key === 'Enter') {
-    addNewTask();
-  }
-})
-// Append the newly created element on element taskItems 
-document.querySelector('#taskItems').appendChild( clone );
+  // Change the id attribute of the newly created element:
+  clone.querySelector(".tasks").setAttribute("id", "t" + noOfTasks);
+  noOfTasks++;
+  console.log(noOfTasks);
+  clone
+    .querySelector(".list-item")
+    .addEventListener("keypress", function handlePress(event) {
+      if (event.key === "Enter") {
+        addNewTask();
+      }
+    });
+  // Append the newly created element on element taskItems
+  document.querySelector("#taskItems").appendChild(clone);
 }
 
+// confirmation dialog to make sure the user actually wants to go back to the homescreen without saving a list.
+// this prevents the error where user misclicked and would have lost time and effort for creating a list but not saving it.
 function confirmClose() {
   if (confirm("Are you sure you want to discard your new list?") == true) {
     window.location.href = "main.html";

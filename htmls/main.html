@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>My BCIT Project</title>
+    <title>TA-DA</title>
     <meta name="comp1800 template" content="My 1800 App" />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -12,7 +13,6 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link href="styles/style.css" rel="stylesheet" />
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -31,64 +31,74 @@
       href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
     />
 
-    <link rel="stylesheet" href="./styles/newList.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="./images/logo2-modified.png" height="36" />
+          <img src="../images/logo.png" height="36" />
           <span id="name-goes-here"></span>'s List
         </a>
         </div>
-      </div>
     </nav>
-
-    <div id="container">
-      <div id="new-nav">
-        <div>
-          <img
-            src="/images/x-symbol-svgrepo-com.svg"
-            alt="Close"
-            id="navButton1"
-            onclick="confirmClose()"
-          />
+<!-- template for a list -->
+    <template id="listCardTemplate">
+      <div class="card" onclick="">
+        <div class="card-header">
+          <h3 class="card-title"></h3>
+          <button
+            class="deleteListBtn btn btn-link"
+            onclick="handleCloseButtonClick(this)"
+          >
+            X
+          </button>
         </div>
-        <div><span id="message">NEW LIST</span></div>
-        <div>
-          <img
-            src="/images/checkmark.png"
-            alt="Close"
-            id="navButton2"
-            onclick="saveNewList()"
-          />
-        </div>
-      </div>
-      <div id="newListTitle">
-        <input
-          id="list-title"
-          type="text"
-          placeholder="Insert List Title Here"
-        />
-      </div>
-      <div id="taskItems">
-        <div class="tasks" id="t0">
-          <input type="checkbox" value="option1" class="taskCheckbox" />
-          <input type="text" class="list-item" placeholder="Add to-do item" />
-        </div>
-      </div>
-    </div>
-
-    <template id="newTaskTemplate">
-      <div class="tasks">
-        <input type="checkbox" value="option1" class="taskCheckbox" />
-        <input type="text" class="list-item" placeholder="Add to-do item" />
+        <div class="tasks-go-here list-group list-group-flush"></div>
       </div>
     </template>
 
-    <script src="./scripts/firebaseAPI_TEAM13.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="/scripts/newList.js"></script>
+
+    <!-- template for a task item -->
+    <template id="taskItemTemplate">
+      <div class="taskItemContainer">
+        <input
+          type="checkbox"
+          value=""
+          class="taskCheckbox"
+          onclick="changeCheckboxState(this)"
+        />
+        <li class="taskDetail fs-5"></li>
+      </div>
+    </template>
+
+    <div id="gridcontainer">
+      <input
+        type="search"
+        placeholder="Search Lists"
+        aria-label="Search"
+        id="searchbar"
+      />
+      <div id="lists-go-here"></div>
+    </div>
+
+    <footer>
+      <button
+        type="button"
+        class="btn btn-warning btn-circle btn-xl fixed-bottom"
+        id="btn"
+        onclick="location.href='newList.html'"
+      >
+        <i class="fa fa-times"
+          ><img src="../images/plus.png" alt="" id="icon"
+        /></i>
+      </button>
+    </footer>
+
+    <script src="../scripts/firebaseAPI_TEAM13.js"></script>
+    <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/authentication.js"></script>
   </body>
 </html>
