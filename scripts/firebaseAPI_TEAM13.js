@@ -7,8 +7,7 @@ var firebaseConfig = {
   projectId: "bbyteam13-1800-202230",
   storageBucket: "bbyteam13-1800-202230.appspot.com",
   messagingSenderId: "617290591033",
-  appId: "1:617290591033:web:cafcb8c9a170b6100056e8"
-
+  appId: "1:617290591033:web:cafcb8c9a170b6100056e8",
 };
 
 //--------------------------------------------

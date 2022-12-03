@@ -94,8 +94,7 @@ input:focus {
   display: inline-block;
 }
 
-.closeButton {
-  display: inline-block;
+.deleteListBtn {
   float: right;
   color: black;
   text-decoration: none;
@@ -103,9 +102,9 @@ input:focus {
 
 .taskItemContainer {
   padding: 15px 0;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
-.taskItem {
+.taskDetail {
   display: inline-flex;
 }
 
