@@ -30,7 +30,7 @@ function insertCards() {
       db.collection("users")
         .doc(user.uid)
         .collection("lists")
-        .orderBy("timestamp")
+        .orderBy("timestamp") // we are ordering our lists by timestamp, so lists created first show up lists created afterwards.
         .get()
         //
         .then(function (insertLists) {
@@ -177,7 +177,7 @@ function changeCheckboxState(checkbox) {
           .update({
             state: false,
           });
-      } else {
+      } else { // if checkbox is ticked.
         db.collection("users")
           .doc(user.uid)
           .collection("lists")
@@ -210,6 +210,7 @@ function handleCloseButtonClick(buttonItself) {
   let listCard = document.getElementById("listCardTemplate");
   let listDiv = document.getElementById("lists-go-here");
 
+  // if there is no list display this card.
   if (document.querySelectorAll(".card").length == 0) {
     let currentCard = listCard.content.cloneNode(true);
     currentCard.querySelector(".card-title").innerHTML =
